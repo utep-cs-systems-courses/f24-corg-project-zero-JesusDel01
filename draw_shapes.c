@@ -26,3 +26,33 @@ void print_triangle(int leftCol, int size)
   }
 }
 
+// Prints an arrow by combining the code from print_triangle and print_square functions.
+void print_arrow(int leftCol, int size)
+{
+   // prints the triangle for the top of the arrow
+  for (int row = 0; row <= size; row++) {
+    int minCol = leftCol + size - row;
+    int maxCol = leftCol + size + row;
+    for (int col = 0; col < minCol; col++) {
+      putchar(' ');
+    }
+    for (int col = minCol; col <= maxCol; col++) {
+      putchar('*');
+    }
+    putchar('\n');
+  }
+
+  //prints a recangle for the bottom of the arrow.
+  int tailStartCol = leftCol + size - (size / 2); // Adjust the left column to center the tail
+  int tailWidth = size; 
+  for (int row = 0; row < size; row++) {
+    for (int col = 0; col < tailStartCol; col++) {
+      putchar(' ');
+    }
+    for (int col = 0; col < tailWidth; col++) {
+      putchar('*');
+    }
+    putchar('\n');
+  }
+}
+
